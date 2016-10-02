@@ -1,6 +1,8 @@
 # compose
 `Proc#compose` (`*`) C extension
 
+I took most of my inspiration from C Ruby's [`#curry`](https://github.com/ruby/ruby/blob/598fd0cd944a2b830adbfa4ba3d8b91af09b85a7/proc.c#L2826).
+
 # [graph::function](https://github.com/mooreniemi/graph-function)
 
 ![comparison](compose_performance.gif)
