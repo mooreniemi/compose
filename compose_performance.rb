@@ -24,11 +24,8 @@ def multi_map(a)
 	a.map(&DOUBLE).map(&TRIPLE).map(&NEGATE)
 end
 
-def cached
-	(DOUBLE * TRIPLE * NEGATE)
-end
 def composed(a)
-	a.map(&cached)
+	a.map(&(DOUBLE * TRIPLE * NEGATE))
 end
 
 def ruby_compose(a)
@@ -41,6 +38,6 @@ require 'stackprof'
 StackProf.run(mode: :object, out: 'compose.dump', interval: 1) do
 	tiny_int_generator.(100_000).map(&(DOUBLE * TRIPLE * NEGATE))
 end
-StackProf.run(mode: :object, out: 'double_map.dump', interval: 1) do
+StackProf.run(mode: :object, out: 'multi_map.dump', interval: 1) do
 	tiny_int_generator.(100_000).map(&DOUBLE).map(&TRIPLE).map(&NEGATE)
 end
