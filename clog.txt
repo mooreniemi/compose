@@ -1,0 +1,1 @@
+procs: [#<Proc:0x007fa709a0dec8@compose_performance.rb:28>, #<Proc:0x007fa709a0def0@compose_performance.rb:27>]
