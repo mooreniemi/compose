@@ -27,7 +27,7 @@ VALUE compose(VALUE arg, VALUE procs) {
 	VALUE first = rb_ary_entry(procs, 0);
 	VALUE second = rb_ary_entry(procs, 1);
 
-	// too slow
+	// allocates too many intermediate arrays
 	//return rb_proc_call(second, rb_ary_new3(1, rb_proc_call(first, rb_ary_new3(1, arg))));
 	VALUE first_result = rb_funcall(first, rb_intern("call"), 1, arg);
 	VALUE final_result = rb_funcall(second, rb_intern("call"), 1, first_result);
