@@ -24,8 +24,11 @@ def multi_map(a)
 	a.map(&DOUBLE).map(&TRIPLE).map(&NEGATE)
 end
 
+def cached
+	(DOUBLE * TRIPLE * NEGATE)
+end
 def composed(a)
-	a.map(&(DOUBLE * TRIPLE * NEGATE))
+	a.map(&cached)
 end
 
 def ruby_compose(a)
