@@ -2,6 +2,9 @@ require './compose'
 require 'graph/function'
 
 Graph::Function.as_gif
+Graph::Function.configure do |config|
+	config.step = (0..100_000).step(1000).to_a # default value
+end
 tiny_int_generator = proc {|size| Array.new(size) { rand(-9...9) } }
 comparison = Graph::Function::Comparison.new(tiny_int_generator)
 
