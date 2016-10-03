@@ -24,7 +24,7 @@ def multi_map(a)
 	a.map(&DOUBLE).map(&TRIPLE).map(&NEGATE)
 end
 
-def composed(a)
+def c_compose(a)
 	a.map(&(DOUBLE * TRIPLE * NEGATE))
 end
 
@@ -32,7 +32,7 @@ def ruby_compose(a)
 	a.map(&DOUBLE.ruby_compose(&TRIPLE).ruby_compose(&NEGATE))
 end
 
-comparison.of(method(:multi_map), method(:composed), method(:ruby_compose))
+comparison.of(method(:multi_map), method(:c_compose), method(:ruby_compose))
 
 require 'stackprof'
 StackProf.run(mode: :object, out: 'compose.dump', interval: 1) do
